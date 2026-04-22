@@ -1,14 +1,12 @@
 "use client";
 
 import { SubmitEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/src/lib/auth-client";
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const initialMode =
-    searchParams.get("mode") === "signup" ? "signup" : "login";
+  const initialMode = "login";
 
   const [mode, setMode] = useState<"login" | "signup">(initialMode);
   const [name, setName] = useState("");
